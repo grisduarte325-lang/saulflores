@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Escolar Profesor Saúl Flores | El Salvador</title>
+    <title>Complejo Educativo Profesor Saúl Flores | El Salvador</title>
+    
+    <!-- Etiquetas SEO (Search Engine Optimization) -->
+    <meta name="description" content="Sitio web oficial del Complejo Educativo Profesor Saúl Flores en El Salvador. Brindamos educación integral y de excelencia desde Primera Infancia hasta Bachillerato General.">
+    <meta name="keywords" content="Complejo Educativo Profesor Saúl Flores, educación El Salvador, centro escolar, colegio, escuela pública, bachillerato general, tercer ciclo, parvularia, MINED">
+    <meta name="author" content="Complejo Educativo Profesor Saúl Flores">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Open Graph (Para previsualización en Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.cesaulflores.edu.sv/">
+    <meta property="og:title" content="Complejo Educativo Profesor Saúl Flores | El Salvador">
+    <meta property="og:description" content="Brindamos educación integral y de excelencia desde Primera Infancia hasta Bachillerato General en El Salvador.">
+    <meta property="og:image" content="https://www.cesaulflores.edu.sv/img/h1.jpg">
+    <meta property="og:locale" content="es_SV">
+
+    <!-- Twitter Cards (Para previsualización en X / Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.cesaulflores.edu.sv/">
+    <meta name="twitter:title" content="Complejo Educativo Profesor Saúl Flores">
+    <meta name="twitter:description" content="Brindamos educación integral y de excelencia desde Primera Infancia hasta Bachillerato General en El Salvador.">
+    <meta name="twitter:image" content="https://www.cesaulflores.edu.sv/img/h1.jpg">
+
+    <!-- Enlace Canónico -->
+    <link rel="canonical" href="https://www.cesaulflores.edu.sv/">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -47,7 +73,7 @@
             border-radius: 4px;
         }
         .hero-pattern {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%), url('img/h1.jpg') center/cover no-repeat;
         }
         .gold-gradient {
             background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
@@ -57,6 +83,84 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Cinematic Slider Revolution Styles */
+        .mask-container {
+            overflow: hidden;
+            display: inline-flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .mask-content {
+            display: inline-block;
+            transform: translateY(120%) rotate(3deg) scale(0.95);
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
+            will-change: transform, opacity;
+            transform-origin: left bottom;
+        }
+        .slide-active .mask-content {
+            transform: translateY(0) rotate(0deg) scale(1);
+            opacity: 1;
+        }
+        .slide-exit .mask-content {
+            transform: translateY(-100%) rotate(-2deg) scale(0.95);
+            opacity: 0;
+            transition: transform 0.8s cubic-bezier(0.5, 0, 0.2, 1), opacity 0.5s ease-in;
+        }
+
+        /* Stagger Delays for Entrance */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+
+        /* Reverse Delays for Exit */
+        .slide-exit .stagger-1 { transition-delay: 0.25s; }
+        .slide-exit .stagger-2 { transition-delay: 0.2s; }
+        .slide-exit .stagger-3 { transition-delay: 0.15s; }
+        .slide-exit .stagger-4 { transition-delay: 0.1s; }
+        .slide-exit .stagger-5 { transition-delay: 0.05s; }
+        .slide-exit .stagger-6 { transition-delay: 0s; }
+
+        /* Cinematic Background Pan & Zoom */
+        .bg-zoom {
+            position: absolute;
+            inset: -5%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1.5s ease;
+            will-change: transform, opacity;
+        }
+        .bg-zoom.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .bg-zoom.exit {
+            opacity: 0;
+            transform: scale(1.05) translate(-2%, 1%);
+            transition: transform 4s ease-in, opacity 1.5s ease;
+        }
+
+        /* Floating Elements */
+        .float-element {
+            animation: floating 6s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg) scale(1.05); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Parallax Layer Setup */
+        .parallax-layer {
+            transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-white">
@@ -64,18 +168,17 @@
     <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-gold-500/30 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
            <!-- Brand Logo & Name -->
-<a href="#inicio" class="flex items-center space-x-3 group">
-    <!-- Logo en imagen -->
-    <div class="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-gold-600/30 group-hover:scale-105 transition-transform">
-        <img src="img/logo.jpeg" alt="Logo Centro Escolar" class="w-full h-full object-cover">
-    </div>
-    <!-- Texto del nombre -->
-    <div>
-        <span class="block text-xs uppercase tracking-widest text-gold-400 font-semibold">Centro Escolar</span>
-        <span class="text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-gold-300 transition-colors">Prof. Saúl Flores</span>
-    </div>
-</a>
-
+            <a href="#inicio" class="flex items-center space-x-3 group">
+                <!-- Logo en imagen -->
+                <div class="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-gold-600/30 group-hover:scale-105 transition-transform">
+                    <img src="img/logo.jpeg" alt="Logo Complejo Educativo" class="w-full h-full object-cover">
+                </div>
+                <!-- Texto del nombre -->
+                <div>
+                    <span class="block text-xs uppercase tracking-widest text-gold-400 font-semibold">Complejo Educativo</span>
+                    <span class="text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-gold-300 transition-colors">Prof. Saúl Flores</span>
+                </div>
+            </a>
 
             <!-- Desktop Navigation Links -->
             <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
@@ -88,10 +191,6 @@
                 <a href="#noticias" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/60 transition-colors">Noticias</a>
                 <a href="#galeria" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/60 transition-colors">Galería</a>
                 <a href="#contacto" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-800/60 transition-colors">Contacto</a>
-                <a href="#guia" class="ml-2 px-4 py-2 rounded-xl text-sm font-semibold text-slate-900 bg-gold-400 hover:bg-gold-500 shadow-md shadow-gold-500/20 transition-all flex items-center space-x-2">
-                    <i class="fa-solid fa-book-open"></i>
-                    <span>Guía & Deploy</span>
-                </a>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -111,53 +210,49 @@
             <a href="#noticias" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-900 mobile-link">Noticias y Eventos</a>
             <a href="#galeria" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-900 mobile-link">Galería</a>
             <a href="#contacto" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:text-gold-400 hover:bg-slate-900 mobile-link">Contacto</a>
-            <a href="#guia" class="block px-3 py-2.5 rounded-lg text-base font-semibold text-slate-900 bg-gold-400 hover:bg-gold-500 text-center mobile-link">Guía Técnica & Publicación</a>
         </div>
     </header>
 
     <main class="pt-20">
-        <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center hero-pattern px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
-            <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px]"></div>
-            <div class="relative max-w-5xl mx-auto text-center z-10">
-                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-300 text-sm font-semibold mb-6 animate-pulse">
-                    <i class="fa-solid fa-award"></i>
-                    <span>Institución Educativa Oficial • El Salvador</span>
-                </div>
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                    Centro Escolar <br><span class="gold-text-gradient">Profesor Saúl Flores</span>
-                </h1>
-                <p class="text-lg sm:text-2xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed mb-10">
-                    "Formando con excelencia, valores y futuro" — Forjando generaciones de salvadoreños íntegros, preparados para los retos del mañana con sólidos principios cívicos y académicos.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#oferta" class="w-full sm:w-auto px-8 py-4 rounded-xl gold-gradient text-white font-bold text-base shadow-xl shadow-gold-600/30 hover:scale-105 transition-transform flex items-center justify-center space-x-3">
-                        <i class="fa-solid fa-compass"></i>
-                        <span>Explorar Oferta Académica</span>
-                    </a>
-                    <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-white font-semibold text-base border border-slate-700 hover:border-gold-500/50 transition-all flex items-center justify-center space-x-3">
-                        <i class="fa-solid fa-phone-volume text-gold-400"></i>
-                        <span>Contáctanos Hoy</span>
-                    </a>
-                </div>
+        <section id="inicio" class="relative h-screen min-h-[600px] sm:min-h-[800px] flex items-center justify-center overflow-hidden bg-slate-950" style="perspective: 1000px;">
+            
+            <!-- Dynamic Background Container -->
+            <div id="carousel-bg" class="absolute inset-0 z-0">
+                <!-- Background images injected via JS -->
+            </div>
 
-                <!-- Quick Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-12 border-t border-slate-800/80">
-                    <div class="bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-800">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-1">500+</div>
-                        <div class="text-xs sm:text-sm text-slate-400 font-medium">Estudiantes Activos</div>
-                    </div>
-                    <div class="bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-800">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-1">30+</div>
-                        <div class="text-xs sm:text-sm text-slate-400 font-medium">Docentes Calificados</div>
-                    </div>
-                    <div class="bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-800">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-1">100%</div>
-                        <div class="text-xs sm:text-sm text-slate-400 font-medium">Compromiso Educativo</div>
-                    </div>
-                    <div class="bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-800">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-1">2 Ciclos</div>
-                        <div class="text-xs sm:text-sm text-slate-400 font-medium">Básica y Media</div>
-                    </div>
+            <!-- Parallax & 3D Depth Particles -->
+            <div id="parallax-scene" class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <!-- Glowing Orbs -->
+                <div class="parallax-layer absolute top-[15%] left-[5%] w-64 h-64 bg-gold-600/20 rounded-full blur-[80px] float-element mix-blend-screen" data-speed="1.5"></div>
+                <div class="parallax-layer absolute bottom-[10%] right-[10%] w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] float-element mix-blend-screen" style="animation-delay: -3s;" data-speed="-2"></div>
+                
+                <!-- Abstract Floating Geometries -->
+                <div class="parallax-layer absolute top-[25%] right-[20%] float-element opacity-60" style="animation-delay: -1s;" data-speed="3">
+                    <svg width="60" height="60" viewBox="0 0 100 100" fill="none" stroke="rgba(245,158,11,0.3)" stroke-width="1.5">
+                        <circle cx="50" cy="50" r="45" stroke-dasharray="10 10" />
+                        <circle cx="50" cy="50" r="25" />
+                    </svg>
+                </div>
+                <div class="parallax-layer absolute bottom-[35%] left-[15%] float-element opacity-50" style="animation-delay: -4s;" data-speed="-3">
+                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1">
+                        <rect x="25" y="25" width="50" height="50" transform="rotate(45 50 50)" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Dark / Glassmorphism Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-slate-950/90 backdrop-blur-[2px] z-10"></div>
+
+            <!-- Master Slider Content Area -->
+            <div id="carousel-content" class="relative z-20 w-full h-full flex flex-col items-center justify-center pointer-events-none">
+                <!-- Slides are injected here -->
+            </div>
+
+            <!-- Cinematic Progress Bar & Controls -->
+            <div class="absolute bottom-12 left-0 w-full z-30 flex flex-col items-center gap-6 pointer-events-auto">
+                <div class="flex items-center gap-4" id="carousel-indicators">
+                    <!-- Dynamic dots -->
                 </div>
             </div>
         </section>
@@ -194,52 +289,50 @@
                     <div class="absolute -right-16 -top-16 w-48 h-48 bg-gold-600/10 rounded-full blur-3xl"></div>
                     
                    <!-- Historia Tab -->
-<div id="tab-historia" class="tab-content space-y-6">
-    <div class="flex items-center space-x-4 mb-6">
-        <div class="w-12 h-12 rounded-xl gold-gradient flex items-center justify-center text-white text-xl">
-            <i class="fa-solid fa-landmark"></i>
-        </div>
-        <div>
-            <h3 class="text-2xl font-bold text-white">Nuestra Historia</h3>
-            <p class="text-gold-400 text-sm font-medium">Trayectoria y legado en El Salvador</p>
-        </div>
-    </div>
-    <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
-        El <strong>Centro Escolar Profesor Saúl Flores</strong> ha sido un faro de luz educativa en nuestra comunidad. Fundado con el firme propósito de brindar oportunidades de superación a la niñez y juventud salvadoreña, la institución lleva con orgullo el nombre del distinguido educador Profesor Saúl Flores, cuya vocación y entrega pedagógica marcaron un hito en la historia educativa local.
-    </p>
-    <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
-        A lo largo de los años, hemos evolucionado adaptándonos a los planes de estudio nacionales del Ministerio de Educación (MINED), mejorando infraestructura, incorporando herramientas tecnológicas y fortaleciendo el vínculo escuela-familia para garantizar una formación integral de calidad.
-    </p>
+                    <div id="tab-historia" class="tab-content space-y-6">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-12 h-12 rounded-xl gold-gradient flex items-center justify-center text-white text-xl">
+                                <i class="fa-solid fa-landmark"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Nuestra Historia</h3>
+                                <p class="text-gold-400 text-sm font-medium">Trayectoria y legado en El Salvador</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                            El <strong>Centro Escolar Profesor Saúl Flores</strong> ha sido un faro de luz educativa en nuestra comunidad. Fundado con el firme propósito de brindar oportunidades de superación a la niñez y juventud salvadoreña, la institución lleva con orgullo el nombre del distinguido educador Profesor Saúl Flores, cuya vocación y entrega pedagógica marcaron un hito en la historia educativa local.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                            A lo largo de los años, hemos evolucionado adaptándonos a los planes de estudio nacionales del Ministerio de Educación (MINED), mejorando infraestructura, incorporando herramientas tecnológicas y fortaleciendo el vínculo escuela-familia para garantizar una formación integral de calidad.
+                        </p>
 
-    <!-- Bloque con botón "Ver más" -->
-    <div class="bg-slate-800 rounded-xl p-6 shadow-lg space-y-4">
-        <h4 class="text-xl font-semibold text-gold-400">Reseña Histórica Completa</h4>
-        
-        <!-- Texto oculto inicialmente -->
-        <div id="historia-completa" class="hidden text-slate-300 leading-relaxed text-base sm:text-lg space-y-4 overflow-y-auto max-h-[500px]">
-            <p>
-                Reseña Histórica del Centro Escolar Profesor Saúl Flores:
-            </p>
-            <p>
-                El 16 de agosto de 1961 se funda la Escuela Urbana Mixta en el Barrio Concepción por el Profesor Lisandro Arévalo Sub – Delegado de ese entonces. El 16 de Octubre de 1962 se nomina la Escuela con el insigne nombre de Don “Saúl Flores” por sugerencia de Don Lisandro Arévalo ya que Don Saúl había sido Maestro y protector de él.
-            </p>
-            <p>
-                El 16 de febrero de 1966 se inaugura el local construido con el Programa de Alianza para el Progreso. En dicha inauguración estaba presente el Embajador de Estados Unidos de Norte América, Dr. Raúl H. Castro lo mismo que Don Saúl Flores, su esposa Sra. Lavinia de Flores e hijos.
-            </p>
-            <p>
-                Un grupo de estudiantes del Colegio “Marcelino García Flamenco” y el grupo musical Black – Cat también estuvo presente el Ministerio de educación, Don Ernesto revelo Borja, el Sub-Secretario de Educación, Profesor Carlos Lobato, las distintas entidades civiles, religiosas, militares y educativas de la comunidad.
-            </p>
-            <!-- 🔽 Aquí continúas pegando TODO el texto completo del documento que me compartiste 🔽 -->
-            <!-- Cada párrafo lo envuelves en <p> ... </p> para que se mantenga el estilo -->
-        </div>
+                        <!-- Bloque con botón "Ver más" -->
+                        <div class="bg-slate-800 rounded-xl p-6 shadow-lg space-y-4">
+                            <h4 class="text-xl font-semibold text-gold-400">Reseña Histórica Completa</h4>
+                            
+                            <!-- Texto oculto inicialmente -->
+                            <div id="historia-completa" class="hidden text-slate-300 leading-relaxed text-base sm:text-lg space-y-4 overflow-y-auto max-h-[500px]">
+                                <p>
+                                    Reseña Histórica del Centro Escolar Profesor Saúl Flores:
+                                </p>
+                                <p>
+                                    El 16 de agosto de 1961 se funda la Escuela Urbana Mixta en el Barrio Concepción por el Profesor Lisandro Arévalo Sub – Delegado de ese entonces. El 16 de Octubre de 1962 se nomina la Escuela con el insigne nombre de Don “Saúl Flores” por sugerencia de Don Lisandro Arévalo ya que Don Saúl había sido Maestro y protector de él.
+                                </p>
+                                <p>
+                                    El 16 de febrero de 1966 se inaugura el local construido con el Programa de Alianza para el Progreso. En dicha inauguración estaba presente el Embajador de Estados Unidos de Norte América, Dr. Raúl H. Castro lo mismo que Don Saúl Flores, su esposa Sra. Lavinia de Flores e hijos.
+                                </p>
+                                <p>
+                                    Un grupo de estudiantes del Colegio “Marcelino García Flamenco” y el grupo musical Black – Cat también estuvo presente el Ministerio de educación, Don Ernesto revelo Borja, el Sub-Secretario de Educación, Profesor Carlos Lobato, las distintas entidades civiles, religiosas, militares y educativas de la comunidad.
+                                </p>
+                            </div>
 
-        <!-- Botón para mostrar/ocultar -->
-        <button onclick="document.getElementById('historia-completa').classList.toggle('hidden')" 
-                class="mt-4 px-4 py-2 bg-gold-400 text-slate-900 font-semibold rounded-lg hover:bg-gold-300 transition">
-            Ver más / Ver menos
-        </button>
-    </div>
-</div>
+                            <!-- Botón para mostrar/ocultar -->
+                            <button onclick="document.getElementById('historia-completa').classList.toggle('hidden')" 
+                                    class="mt-4 px-4 py-2 bg-gold-400 text-slate-900 font-semibold rounded-lg hover:bg-gold-300 transition">
+                                Ver más / Ver menos
+                            </button>
+                        </div>
+                    </div>
 
                     <!-- Misión Tab -->
                     <div id="tab-mision" class="tab-content hidden space-y-6">
@@ -351,74 +444,74 @@
         </section>
 
        <section id="oferta" class="py-24 bg-slate-950 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-gold-400 text-sm font-bold tracking-widest uppercase block mb-3">Planes de Estudio</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Oferta Académica</h2>
-      <p class="text-slate-400 mt-4 text-base sm:text-lg">
-        Programas educativos oficiales alineados con los estándares del sistema educativo de El Salvador.
-      </p>
-    </div>
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+              <span class="text-gold-400 text-sm font-bold tracking-widest uppercase block mb-3">Planes de Estudio</span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Oferta Académica</h2>
+              <p class="text-slate-400 mt-4 text-base sm:text-lg">
+                Programas educativos oficiales alineados con los estándares del sistema educativo de El Salvador.
+              </p>
+            </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Primera Infancia -->
-      <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-gold-500/50 transition-all flex flex-col justify-between group shadow-xl">
-        <div>
-          <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
-            <i class="fa-solid fa-baby"></i>
-          </div>
-          <span class="text-xs uppercase tracking-widest font-semibold text-gold-400">Primera Infancia</span>
-          <h3 class="text-2xl font-bold text-white mt-1 mb-4">Nivel Inicial</h3>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-            Atención integral a niños de 0 a 3 años, fomentando el desarrollo psicomotor, socioemocional y cognitivo mediante actividades lúdicas y de estimulación temprana.
-          </p>
-        </div>
-      </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <!-- Primera Infancia -->
+              <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-gold-500/50 transition-all flex flex-col justify-between group shadow-xl">
+                <div>
+                  <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-baby"></i>
+                  </div>
+                  <span class="text-xs uppercase tracking-widest font-semibold text-gold-400">Primera Infancia</span>
+                  <h3 class="text-2xl font-bold text-white mt-1 mb-4">Nivel Inicial</h3>
+                  <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    Atención integral a niños de 0 a 3 años, fomentando el desarrollo psicomotor, socioemocional y cognitivo mediante actividades lúdicas y de estimulación temprana.
+                  </p>
+                </div>
+              </div>
 
-      <!-- Parvularia -->
-      <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-gold-500/50 transition-all flex flex-col justify-between group shadow-xl">
-        <div>
-          <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
-            <i class="fa-solid fa-child"></i>
-          </div>
-          <span class="text-xs uppercase tracking-widest font-semibold text-gold-400">Parvularia</span>
-          <h3 class="text-2xl font-bold text-white mt-1 mb-4">Educación Preescolar</h3>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-            Formación inicial para niños de 4 a 6 años, fortaleciendo habilidades sociales, lenguaje, pensamiento lógico y creatividad mediante juegos y dinámicas educativas.
-          </p>
-        </div>
-      </div>
+              <!-- Parvularia -->
+              <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-gold-500/50 transition-all flex flex-col justify-between group shadow-xl">
+                <div>
+                  <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-child"></i>
+                  </div>
+                  <span class="text-xs uppercase tracking-widest font-semibold text-gold-400">Parvularia</span>
+                  <h3 class="text-2xl font-bold text-white mt-1 mb-4">Educación Preescolar</h3>
+                  <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    Formación inicial para niños de 4 a 6 años, fortaleciendo habilidades sociales, lenguaje, pensamiento lógico y creatividad mediante juegos y dinámicas educativas.
+                  </p>
+                </div>
+              </div>
 
-      <!-- Educación Básica -->
-      <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-gold-500/50 transition-all flex flex-col justify-between group shadow-xl">
-        <div>
-          <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
-            <i class="fa-solid fa-book-open-reader"></i>
-          </div>
-          <span class="text-xs uppercase tracking-widest font-semibold text-gold-400">Educación Básica</span>
-          <h3 class="text-2xl font-bold text-white mt-1 mb-4">Tercer Ciclo (7°, 8° y 9° Grado)</h3>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-            Competencias fundamentales en Lenguaje, Matemáticas, Ciencias, Estudios Sociales, Inglés, Informática y Educación Física. Preparación integral para la educación media.
-          </p>
-        </div>
-      </div>
+              <!-- Educación Básica -->
+              <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-gold-500/50 transition-all flex flex-col justify-between group shadow-xl">
+                <div>
+                  <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </div>
+                  <span class="text-xs uppercase tracking-widest font-semibold text-gold-400">Educación Básica</span>
+                  <h3 class="text-2xl font-bold text-white mt-1 mb-4">Tercer Ciclo (7°, 8° y 9° Grado)</h3>
+                  <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    Competencias fundamentales en Lenguaje, Matemáticas, Ciencias, Estudios Sociales, Inglés, Informática y Educación Física. Preparación integral para la educación media.
+                  </p>
+                </div>
+              </div>
 
-      <!-- Bachillerato General -->
-      <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-gold-500/50 transition-all flex flex-col justify-between group shadow-xl">
-        <div>
-          <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
-            <i class="fa-solid fa-graduation-cap"></i>
+              <!-- Bachillerato General -->
+              <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-gold-500/50 transition-all flex flex-col justify-between group shadow-xl">
+                <div>
+                  <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                  <span class="text-xs uppercase tracking-widest font-semibold text-gold-400">Educación Secundaria</span>
+                  <h3 class="text-2xl font-bold text-white mt-1 mb-4">Bachillerato General (1° y 2° Año)</h3>
+                  <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    Formación académica rigurosa para preparar a los jóvenes hacia la educación superior o inserción técnica. Énfasis en investigación, idiomas y proyectos de emprendimiento.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <span class="text-xs uppercase tracking-widest font-semibold text-gold-400">Educación Secundaria</span>
-          <h3 class="text-2xl font-bold text-white mt-1 mb-4">Bachillerato General (1° y 2° Año)</h3>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-            Formación académica rigurosa para preparar a los jóvenes hacia la educación superior o inserción técnica. Énfasis en investigación, idiomas y proyectos de emprendimiento.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
 
         <section id="estudiantes" class="py-24 bg-slate-900 relative">
@@ -535,71 +628,76 @@
             </div>
         </section>
 
+        <!-- SECCIÓN MODIFICADA: PERFILES DOCENTES -->
         <section id="docentes" class="py-24 bg-slate-950 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-gold-400 text-sm font-bold tracking-widest uppercase block mb-3">Portal del Profesorado</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Área de Docentes</h2>
-                    <p class="text-slate-400 mt-4 text-base sm:text-lg">Espacio de gestión pedagógica, organización de materiales y avisos del claustro de profesores.</p>
+                    <span class="text-gold-400 text-sm font-bold tracking-widest uppercase block mb-3">Conoce a los Expertos</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Nuestro Equipo Docente</h2>
+                    <p class="text-slate-400 mt-4 text-base sm:text-lg">Profesionales altamente capacitados, comprometidos con la excelencia académica y el desarrollo humano de nuestros estudiantes.</p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Teacher Form / Simulation Card -->
-                    <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl lg:col-span-1">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                            <i class="fa-solid fa-pen-to-square text-gold-400 mr-2"></i> Publicar Nuevo Aviso
-                        </h3>
-                        <p class="text-xs text-slate-400 mb-6">Esta sección utiliza almacenamiento local (<code class="text-gold-400">localStorage</code>) en modo demostrativo. Para persistencia real se requiere servidor/backend.</p>
-                        
-                        <form id="teacher-form" onsubmit="handleTeacherPost(event)" class="space-y-4">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Profesor / Remitente</label>
-                                <input type="text" id="teacher-name" required placeholder="Ej. Lic. Roberto Gómez" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Título del Aviso</label>
-                                <input type="text" id="teacher-title" required placeholder="Ej. Entrega de notas de periodo" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Contenido del Mensaje</label>
-                                <textarea id="teacher-content" required rows="3" placeholder="Detalles del aviso o tarea..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full py-3.5 rounded-xl gold-gradient text-white font-bold text-sm shadow-lg shadow-gold-600/30 hover:scale-[1.02] transition-transform flex items-center justify-center space-x-2">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                <span>Publicar en la Web</span>
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Teacher Feed / Notices List -->
-                    <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl lg:col-span-2 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
-                                <h3 class="text-xl font-bold text-white flex items-center">
-                                    <i class="fa-solid fa-clipboard-list text-gold-400 mr-2"></i> Tablón de Avisos Docentes
-                                </h3>
-                                <span class="text-xs bg-gold-500/20 text-gold-400 px-3 py-1 rounded-full font-semibold">Demo Interactiva</span>
-                            </div>
-
-                            <div id="teacher-posts-container" class="space-y-4 max-h-[400px] overflow-y-auto pr-2">
-                                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <h4 class="font-bold text-white text-base">Reunión General de Padres de Familia</h4>
-                                        <span class="text-xs text-slate-400">Licda. María Elena Castro</span>
-                                    </div>
-                                    <p class="text-slate-300 text-sm mb-3">Se convoca a todos los padres de familia este próximo jueves a las 2:00 PM en las instalaciones del centro escolar para la entrega de informes de progreso.</p>
-                                    <div class="text-xs text-gold-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> Publicado recientemente</div>
-                                </div>
-                            </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    
+                    <!-- Docente 1 -->
+                    <div class="bg-slate-900 rounded-3xl border border-slate-800 p-8 flex flex-col items-center text-center shadow-xl hover:shadow-gold-500/10 hover:border-gold-500/50 hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="w-32 h-32 mb-5 rounded-full overflow-hidden border-4 border-slate-800 group-hover:border-gold-500 transition-colors duration-300 relative shadow-lg">
+                            <!-- Placeholder image, idealmente referenciar a img/docentes/foto1.jpg -->
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200" alt="Profesor" class="w-full h-full object-cover">
                         </div>
-                        <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
-                            <span><i class="fa-solid fa-triangle-exclamation text-amber-400 mr-1"></i> Requiere servidor para BD multiusuario real.</span>
-                            <button onclick="clearTeacherPosts()" class="text-red-400 hover:text-red-300 font-semibold">Limpiar Avisos Demo</button>
+                        <h3 class="text-xl font-bold text-white mb-1">Lic. Roberto Gómez</h3>
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-4">Matemáticas y Física</span>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Especialista en ciencias exactas con más de 15 años de experiencia. Promueve el pensamiento lógico y analítico a través de métodos interactivos.</p>
+                        <div class="flex space-x-3 mt-auto pt-4 border-t border-slate-800 w-full justify-center">
+                            <a href="#" class="w-9 h-9 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-gold-600 hover:text-white hover:border-gold-600 transition-colors"><i class="fa-solid fa-envelope text-sm"></i></a>
+                            <a href="#" class="w-9 h-9 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-gold-600 hover:text-white hover:border-gold-600 transition-colors"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
                         </div>
                     </div>
+
+                    <!-- Docente 2 -->
+                    <div class="bg-slate-900 rounded-3xl border border-slate-800 p-8 flex flex-col items-center text-center shadow-xl hover:shadow-gold-500/10 hover:border-gold-500/50 hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="w-32 h-32 mb-5 rounded-full overflow-hidden border-4 border-slate-800 group-hover:border-gold-500 transition-colors duration-300 relative shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200" alt="Profesora" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Licda. María Castro</h3>
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-4">Lenguaje y Literatura</span>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Fomenta el amor por la lectura y la expresión escrita. Coordinadora del club de debate y oratoria de bachillerato.</p>
+                        <div class="flex space-x-3 mt-auto pt-4 border-t border-slate-800 w-full justify-center">
+                            <a href="#" class="w-9 h-9 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-gold-600 hover:text-white hover:border-gold-600 transition-colors"><i class="fa-solid fa-envelope text-sm"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Docente 3 -->
+                    <div class="bg-slate-900 rounded-3xl border border-slate-800 p-8 flex flex-col items-center text-center shadow-xl hover:shadow-gold-500/10 hover:border-gold-500/50 hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="w-32 h-32 mb-5 rounded-full overflow-hidden border-4 border-slate-800 group-hover:border-gold-500 transition-colors duration-300 relative shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&q=80&w=200&h=200" alt="Profesor" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Prof. Mario Alfaro</h3>
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-4">Ciencias Naturales</span>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Apasionado por el medio ambiente y la biología. Encargado de liderar la Feria Científica y Tecnológica anual del colegio.</p>
+                        <div class="flex space-x-3 mt-auto pt-4 border-t border-slate-800 w-full justify-center">
+                            <a href="#" class="w-9 h-9 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-gold-600 hover:text-white hover:border-gold-600 transition-colors"><i class="fa-solid fa-envelope text-sm"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Docente 4 -->
+                    <div class="bg-slate-900 rounded-3xl border border-slate-800 p-8 flex flex-col items-center text-center shadow-xl hover:shadow-gold-500/10 hover:border-gold-500/50 hover:-translate-y-1 transition-all duration-300 group">
+                        <div class="w-32 h-32 mb-5 rounded-full overflow-hidden border-4 border-slate-800 group-hover:border-gold-500 transition-colors duration-300 relative shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&q=80&w=200&h=200" alt="Profesora" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">MSc. Ana Patricia Ruiz</h3>
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-4">Inglés e Informática</span>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Integra la tecnología con el aprendizaje de idiomas. Prepara a los estudiantes para los desafíos del mundo globalizado.</p>
+                        <div class="flex space-x-3 mt-auto pt-4 border-t border-slate-800 w-full justify-center">
+                            <a href="#" class="w-9 h-9 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-gold-600 hover:text-white hover:border-gold-600 transition-colors"><i class="fa-solid fa-envelope text-sm"></i></a>
+                            <a href="#" class="w-9 h-9 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-gold-600 hover:text-white hover:border-gold-600 transition-colors"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
+        <!-- FIN SECCIÓN MODIFICADA -->
 
         <section id="registro" class="py-24 bg-slate-900 relative">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -675,151 +773,611 @@
                     <p class="text-slate-400 mt-4 text-base sm:text-lg">Entérate de las últimas actividades académicas, culturales y deportivas del Centro Escolar.</p>
                 </div>
 
-        
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-  <!-- Noticia 1 - Tecnología -->
-  <div class="bg-slate-900 rounded-lg border border-slate-800 overflow-hidden shadow-md flex flex-col aspect-square group hover:border-gold-500/50 transition-all">
-    <div class="h-32 overflow-hidden relative">
-      <img src="img/tecnologia/11.jpeg" alt="Feria Científica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-      <div class="absolute top-1 left-1 bg-gold-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">10 Oct 2026</div>
-    </div>
-    <div class="p-3 flex-1 flex flex-col justify-between">
-      <div>
-        <h3 class="text-sm font-bold text-white mb-1 group-hover:text-gold-400">Feria Científica y Tecnológica</h3>
-        <p class="text-slate-300 text-xs leading-snug mb-2">Proyectos sobre energía solar, reciclaje y robótica educativa.</p>
-      </div>
-      <div class="pt-1 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-        <span><i class="fa-solid fa-user-pen mr-1"></i> Dirección C.E.</span>
-        <button onclick="openModal('tecnologiaModal')" class="text-gold-400 font-semibold text-xs">Ver fotos</button>
-      </div>
-    </div>
-  </div>
-<!-- Modal Tecnología -->
-<div id="tecnologiaModal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 overflow-y-auto">
-  <div class="max-w-5xl mx-auto p-6">
-    <h3 class="text-2xl font-bold text-gold-400 mb-6 text-center">Galería Tecnología</h3>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <img src="img/tecnologia/11.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/tecnologia/22.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/tecnologia/33.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/tecnologia/44.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/tecnologia/55.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/tecnologia/66.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-    </div>
-    <div class="text-center mt-6">
-      <button onclick="closeModal('tecnologiaModal')" class="px-6 py-2 bg-gold-400 text-slate-900 font-bold rounded-lg hover:bg-gold-300 transition">Cerrar</button>
-    </div>
-  </div>
-</div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Noticia 1 - Tecnología -->
+                    <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col group hover:border-gold-500/50 transition-all h-full">
+                        <div class="h-48 sm:h-52 overflow-hidden relative">
+                            <img src="img/tecnologia/11.jpeg" alt="Feria Científica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 left-2 bg-gold-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow">10 Oct 2026</div>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">Feria Científica y Tecnológica</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">Proyectos sobre energía solar, reciclaje y robótica educativa.</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-user-pen mr-1"></i> Dirección C.E.</span>
+                                <button onclick="openModal('tecnologiaModal')" class="text-gold-400 hover:text-gold-300 font-semibold transition-colors">Ver fotos</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Tecnología -->
+                    <div id="tecnologiaModal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 overflow-y-auto">
+                        <div class="max-w-5xl mx-auto p-6 mt-20">
+                            <h3 class="text-2xl font-bold text-gold-400 mb-6 text-center">Galería Tecnología</h3>
+                            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                                <img src="img/tecnologia/11.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/tecnologia/22.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/tecnologia/33.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/tecnologia/44.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/tecnologia/55.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/tecnologia/66.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                            </div>
+                            <div class="text-center mt-6">
+                                <button onclick="closeModal('tecnologiaModal')" class="px-6 py-2 bg-gold-400 text-slate-900 font-bold rounded-lg hover:bg-gold-300 transition">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Noticia 2 - Deporte -->
-  <div class="bg-slate-900 rounded-lg border border-slate-800 overflow-hidden shadow-md flex flex-col aspect-square group hover:border-gold-500/50 transition-all">
-    <div class="h-32 overflow-hidden relative">
-      <img src="img/deporte/1111.jpeg" alt="Deportes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-      <div class="absolute top-1 left-1 bg-gold-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">02 Oct 2026</div>
-    </div>
-    <div class="p-3 flex-1 flex flex-col justify-between">
-      <div>
-        <h3 class="text-sm font-bold text-white mb-1 group-hover:text-gold-400">Torneo de Fútbol Sala</h3>
-        <p class="text-slate-300 text-xs leading-snug mb-2">Nuestra selección obtuvo el segundo lugar en el campeonato departamental.</p>
-      </div>
-      <div class="pt-1 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-        <span><i class="fa-solid fa-user-pen mr-1"></i> Comité de Deportes</span>
-        <button onclick="openModal('deporteModal')" class="text-gold-400 font-semibold text-xs">Ver fotos</button>
-      </div>
-    </div>
-  </div>
+                    <!-- Noticia 2 - Deporte -->
+                    <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col group hover:border-gold-500/50 transition-all h-full">
+                        <div class="h-48 sm:h-52 overflow-hidden relative">
+                            <img src="img/deporte/1111.jpeg" alt="Deportes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 left-2 bg-gold-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow">02 Oct 2026</div>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">Torneo de Fútbol Sala</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">Nuestra selección obtuvo el segundo lugar en el campeonato departamental.</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-user-pen mr-1"></i> Comité de Deportes</span>
+                                <button onclick="openModal('deporteModal')" class="text-gold-400 hover:text-gold-300 font-semibold transition-colors">Ver fotos</button>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Modal Deporte -->
-<div id="deporteModal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 overflow-y-auto">
-  <div class="max-w-5xl mx-auto p-6">
-    <h3 class="text-2xl font-bold text-gold-400 mb-6 text-center">Galería Deporte</h3>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <img src="img/deporte/1111.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/deporte/2222.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/deporte/3333.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/deporte/4444.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/deporte/5555.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/deporte/6666.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/deporte/7777.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-    </div>
-    <div class="text-center mt-6">
-      <button onclick="closeModal('deporteModal')" class="px-6 py-2 bg-gold-400 text-slate-900 font-bold rounded-lg hover:bg-gold-300 transition">Cerrar</button>
-    </div>
-  </div>
-</div>
-
-
-               <!-- Noticia 3 - Mes Cívico -->
-  <div class="bg-slate-900 rounded-lg border border-slate-800 overflow-hidden shadow-md flex flex-col aspect-square group hover:border-gold-500/50 transition-all">
-    <div class="h-32 overflow-hidden relative">
-      <img src="img/mes civico/111.jpeg" alt="Mes Cívico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-      <div class="absolute top-1 left-1 bg-gold-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">25 Sep 2026</div>
-    </div>
-    <div class="p-3 flex-1 flex flex-col justify-between">
-      <div>
-        <h3 class="text-sm font-bold text-white mb-1 group-hover:text-gold-400">Celebración del Mes de la Patria</h3>
-        <p class="text-slate-300 text-xs leading-snug mb-2">Desfiles, actos culturales y bandas de paz conmemoraron la independencia.</p>
-      </div>
-      <div class="pt-1 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-        <span><i class="fa-solid fa-user-pen mr-1"></i> Comisión Cívica</span>
-        <button onclick="openModal('civicoModal')" class="text-gold-400 font-semibold text-xs">Ver fotos</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Mes Cívico -->
-<div id="civicoModal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 overflow-y-auto">
-  <div class="max-w-5xl mx-auto p-6">
-    <h3 class="text-2xl font-bold text-gold-400 mb-6 text-center">Galería Mes Cívico</h3>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <img src="img/mes civico/111.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/mes civico/222.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/mes civico/333.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/mes civico/444.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/mes civico/555.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/mes civico/666.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-      <img src="img/mes civico/777.jpeg" class="w-full h-48 object-cover rounded-lg shadow-md">
-    </div>
-    <div class="text-center mt-6">
-      <button onclick="closeModal('civicoModal')" class="px-6 py-2 bg-gold-400 text-slate-900 font-bold rounded-lg hover:bg-gold-300 transition">Cerrar</button>
-    </div>
-  </div>
-</div>
-
-<!-- Espacio entre secciones -->
-<div class="my-16"></div>
-       <!-- Área de Fotos (9 imágenes) -->
-<section id="fotos" class="py-24 bg-slate-900 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-gold-400 text-sm font-bold uppercase block mb-3">Recuerdos y Actividades</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Área de Fotos</h2>
-      <p class="text-slate-400 mt-4">Galería de momentos escolares.</p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <img src="img/1.jpeg" alt="Foto 1" class="w-full h-72 object-cover rounded-xl shadow-lg">
-      <img src="img/2.jpeg" alt="Foto 2" class="w-full h-72 object-cover rounded-xl shadow-lg">
-      <img src="img/3.jpeg" alt="Foto 3" class="w-full h-72 object-cover rounded-xl shadow-lg">
-      <img src="img/4.jpeg" alt="Foto 4" class="w-full h-72 object-cover rounded-xl shadow-lg">
-      <img src="img/5.jpeg" alt="Foto 5" class="w-full h-72 object-cover rounded-xl shadow-lg">
-      <img src="img/6.jpeg" alt="Foto 6" class="w-full h-72 object-cover rounded-xl shadow-lg">
-      <img src="img/7.jpeg" alt="Foto 7" class="w-full h-72 object-cover rounded-xl shadow-lg">
-      <img src="img/8.jpeg" alt="Foto 8" class="w-full h-72 object-cover rounded-xl shadow-lg">
-      <img src="img/9.jpeg" alt="Foto 9" class="w-full h-72 object-cover rounded-xl shadow-lg">
-    </div>
-  </div>
-</section>
+                    <!-- Modal Deporte -->
+                    <div id="deporteModal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 overflow-y-auto">
+                        <div class="max-w-5xl mx-auto p-6 mt-20">
+                            <h3 class="text-2xl font-bold text-gold-400 mb-6 text-center">Galería Deporte</h3>
+                            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                                <img src="img/deporte/1111.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/deporte/2222.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/deporte/3333.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/deporte/4444.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/deporte/5555.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/deporte/6666.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                                <img src="img/deporte/7777.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                            </div>
+                            <div class="text-center mt-6">
+                                <button onclick="closeModal('deporteModal')" class="px-6 py-2 bg-gold-400 text-slate-900 font-bold rounded-lg hover:bg-gold-300 transition">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
 
 
-  <script>
-  function openModal(modalId) {
-    document.getElementById(modalId).classList.remove('hidden');
-  }
-  function closeModal(modalId) {
-    document.getElementById(modalId).classList.add('hidden');
-  }
-</script>
+                    <!-- Noticia 3 - Mes Cívico -->
+                    <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-lg flex flex-col group hover:border-gold-500/50 transition-all h-full">
+                        <div class="h-48 sm:h-52 overflow-hidden relative">
+                            <img src="img/mes civico/111.jpeg" alt="Mes Cívico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 left-2 bg-gold-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow">25 Sep 2026</div>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">Celebración del Mes de la Patria</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">Desfiles, actos culturales y bandas de paz conmemoraron la independencia.</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-user-pen mr-1"></i> Comisión Cívica</span>
+                                <button onclick="openModal('civicoModal')" class="text-gold-400 hover:text-gold-300 font-semibold transition-colors">Ver fotos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</section>
+                <!-- Modal Mes Cívico -->
+                <div id="civicoModal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 overflow-y-auto">
+                    <div class="max-w-5xl mx-auto p-6 mt-20">
+                        <h3 class="text-2xl font-bold text-gold-400 mb-6 text-center">Galería Mes Cívico</h3>
+                        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                            <img src="img/mes civico/111.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                            <img src="img/mes civico/222.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                            <img src="img/mes civico/333.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                            <img src="img/mes civico/444.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                            <img src="img/mes civico/555.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                            <img src="img/mes civico/666.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                            <img src="img/mes civico/777.jpeg" onclick="openGalleryModal(this.src)" class="w-full h-24 object-cover rounded-xl shadow-md cursor-pointer hover:scale-110 hover:shadow-gold-500/50 transition-all duration-300 border border-transparent hover:border-gold-500">
+                        </div>
+                        <div class="text-center mt-6">
+                            <button onclick="closeModal('civicoModal')" class="px-6 py-2 bg-gold-400 text-slate-900 font-bold rounded-lg hover:bg-gold-300 transition">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Área de Fotos (9 imágenes) -->
+        <section id="galeria" class="py-24 bg-slate-900 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-gold-400 text-sm font-bold uppercase block mb-3">Recuerdos y Actividades</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Área de Fotos</h2>
+                    <p class="text-slate-400 mt-4">Galería de momentos escolares.</p>
+                </div>
+                <!-- Grid actualizado para miniaturas -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    <img src="img/1.jpeg" alt="Foto 1" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                    <img src="img/2.jpeg" alt="Foto 2" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                    <img src="img/3.jpeg" alt="Foto 3" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                    <img src="img/4.jpeg" alt="Foto 4" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                    <img src="img/5.jpeg" alt="Foto 5" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                    <img src="img/6.jpeg" alt="Foto 6" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                    <img src="img/7.jpeg" alt="Foto 7" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                    <img src="img/8.jpeg" alt="Foto 8" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                    <img src="img/9.jpeg" alt="Foto 9" onclick="openGalleryModal(this.src)" class="w-full h-32 md:h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 hover:shadow-gold-500/30 transition-all duration-300 border border-transparent hover:border-gold-500">
+                </div>
+            </div>
+
+            <!-- Modal para expandir fotos -->
+            <div id="mainGalleryModal" class="fixed inset-0 bg-slate-950/95 backdrop-blur-sm hidden z-[100] flex items-center justify-center p-4 transition-all duration-300" onclick="closeGalleryModal(event)">
+                <button type="button" onclick="closeGalleryModal()" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-slate-900 border border-slate-700 text-slate-300 hover:text-gold-400 hover:border-gold-500 flex items-center justify-center text-xl transition-colors z-50 shadow-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <img id="modalFullImage" src="" alt="Foto ampliada" class="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl border border-slate-800" onclick="event.stopPropagation()">
+            </div>
+        </section>
+
+        <section id="contacto" class="py-24 bg-slate-950 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-gold-400 text-sm font-bold tracking-widest uppercase block mb-3">Comunicación Directa</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Contacto y Ubicación</h2>
+                    <p class="text-slate-400 mt-4 text-base sm:text-lg">Estamos a su disposición para resolver cualquier duda o consulta sobre nuestra institución educativa.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Información de Contacto -->
+                    <div class="space-y-8">
+                        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl h-full">
+                            <h3 class="text-2xl font-bold text-white mb-8">Información de Contacto</h3>
+                            <div class="space-y-8">
+                                <div class="flex items-start space-x-5">
+                                    <div class="w-14 h-14 rounded-xl bg-gold-600/20 text-gold-400 flex items-center justify-center text-2xl shrink-0">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-lg">Dirección</h4>
+                                        <p class="text-slate-400 text-sm mt-1 leading-relaxed">Centro Escolar Profesor Saúl Flores<br>El Salvador</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-5">
+                                    <div class="w-14 h-14 rounded-xl bg-gold-600/20 text-gold-400 flex items-center justify-center text-2xl shrink-0">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-lg">Teléfonos</h4>
+                                        <p class="text-slate-400 text-sm mt-1 leading-relaxed">+503 2000-0000<br>+503 7000-0000</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-5">
+                                    <div class="w-14 h-14 rounded-xl bg-gold-600/20 text-gold-400 flex items-center justify-center text-2xl shrink-0">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-lg">Correo Electrónico</h4>
+                                        <p class="text-slate-400 text-sm mt-1 leading-relaxed">info@cesaulflores.edu.sv<br>administracion@cesaulflores.edu.sv</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-5">
+                                    <div class="w-14 h-14 rounded-xl bg-gold-600/20 text-gold-400 flex items-center justify-center text-2xl shrink-0">
+                                        <i class="fa-solid fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-lg">Horario de Atención</h4>
+                                        <p class="text-slate-400 text-sm mt-1 leading-relaxed">Lunes a Viernes: 7:00 AM - 4:00 PM<br>Sábado y Domingo: Cerrado</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Contacto -->
+                    <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl">
+                        <h3 class="text-2xl font-bold text-white mb-6">Envíenos un Mensaje</h3>
+                        
+                        <div id="contact-alert" class="hidden mb-6 p-4 rounded-xl bg-emerald-500/20 border border-emerald-500 text-emerald-300 text-sm flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-check text-xl"></i>
+                            <span>Su mensaje ha sido enviado exitosamente. Nos pondremos en contacto pronto.</span>
+                        </div>
+
+                        <form id="contact-form" onsubmit="handleContact(event)" class="space-y-5">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Nombre Completo</label>
+                                <input type="text" required placeholder="Su nombre" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Correo Electrónico</label>
+                                <input type="email" required placeholder="su@correo.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Asunto</label>
+                                <input type="text" required placeholder="¿En qué podemos ayudarle?" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Mensaje</label>
+                                <textarea required rows="4" placeholder="Escriba su mensaje aquí..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-500 transition-colors"></textarea>
+                            </div>
+                            <div class="pt-2">
+                                <button type="submit" class="w-full py-4 rounded-xl gold-gradient text-white font-bold text-base shadow-xl shadow-gold-600/30 hover:scale-[1.01] transition-transform flex items-center justify-center space-x-3">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Enviar Mensaje</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Botones Flotantes (WhatsApp y Subir) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/50370000000" target="_blank" rel="noopener noreferrer" title="Contactar por WhatsApp" class="w-13 h-13 p-3.5 rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-900/40 hover:bg-emerald-400 hover:scale-110 active:scale-95 transition-all flex items-center justify-center group">
+            <i class="fa-brands fa-whatsapp text-2xl group-hover:rotate-12 transition-transform"></i>
+        </a>
+
+        <!-- Botón para subir al inicio -->
+        <button id="scrollToTopBtn" onclick="scrollToTop()" title="Volver arriba" class="hidden w-13 h-13 p-3.5 rounded-full bg-slate-800/90 text-gold-400 border border-gold-500/40 backdrop-blur-md shadow-xl hover:bg-gold-500 hover:text-slate-950 hover:scale-110 active:scale-95 transition-all flex items-center justify-center">
+            <i class="fa-solid fa-chevron-up text-xl"></i>
+        </button>
+    </div>
+
+    <footer class="bg-slate-950 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-slate-500 text-sm text-center md:text-left">&copy; 2026 Centro Escolar Profesor Saúl Flores. Todos los derechos reservados.</p>
+            <div class="flex items-center space-x-5">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-500 transition-colors" title="Facebook">
+                    <i class="fa-brands fa-facebook text-xl"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-pink-500 transition-colors" title="Instagram">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-red-500 transition-colors" title="YouTube">
+                    <i class="fa-brands fa-youtube text-xl"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-300 transition-colors" title="X (Twitter)">
+                    <i class="fa-brands fa-x-twitter text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Botón de Subir (Ir Arriba) ---
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollToTopBtn.classList.remove('hidden');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // --- Modals ---
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // --- Main Gallery Modal ---
+        function openGalleryModal(src) {
+            const modal = document.getElementById('mainGalleryModal');
+            const modalImg = document.getElementById('modalFullImage');
+            modalImg.src = src;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeGalleryModal(event) {
+            if (!event || event.target.id === 'mainGalleryModal') {
+                const modal = document.getElementById('mainGalleryModal');
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; 
+            }
+        }
+
+        // --- Mobile Menu Toggle ---
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // --- Tabs Institucionales ---
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.add('hidden'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => {
+                b.classList.remove('bg-gold-600', 'text-white', 'shadow-lg', 'shadow-gold-600/30');
+                b.classList.add('bg-slate-800', 'text-slate-300');
+            });
+            
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+            activeBtn.classList.add('bg-gold-600', 'text-white', 'shadow-lg', 'shadow-gold-600/30');
+        }
+
+        // --- Tabs Estudiantes ---
+        function filterStudentTab(tabId) {
+            const panels = document.querySelectorAll('.student-panel');
+            panels.forEach(p => p.classList.add('hidden'));
+            
+            const buttons = document.querySelectorAll('.student-tab');
+            buttons.forEach(b => {
+                b.classList.remove('bg-gold-600', 'text-white', 'shadow-md');
+                b.classList.add('bg-slate-900', 'text-slate-300');
+            });
+            
+            document.getElementById(`st-panel-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`st-btn-${tabId}`);
+            activeBtn.classList.remove('bg-slate-900', 'text-slate-300');
+            activeBtn.classList.add('bg-gold-600', 'text-white', 'shadow-md');
+        }
+
+        // --- Formulario de Pre-Registro ---
+        function handleRegistration(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('registration-alert');
+            alertBox.classList.remove('hidden');
+            
+            document.getElementById('academic-reg-form').reset();
+            
+            setTimeout(() => {
+                alertBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        // --- Tablón de Profesores (Refactorizado defensivamente al ser sustituido) ---
+        function renderTeacherPosts() {
+            const container = document.getElementById('teacher-posts-container');
+            // If container doesn't exist (because section was replaced by Profiles), exit gracefully
+            if(!container) return; 
+
+            const posts = JSON.parse(localStorage.getItem('teacherPosts') || '[]');
+            if(posts.length === 0) {
+                container.innerHTML = `
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-white text-base">Reunión General de Padres de Familia</h4>
+                        <span class="text-xs text-slate-400">Licda. María Elena Castro</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-3">Se convoca a todos los padres de familia este próximo jueves a las 2:00 PM en las instalaciones del centro escolar para la entrega de informes de progreso.</p>
+                    <div class="text-xs text-gold-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> Default Notice</div>
+                </div>`;
+                return;
+            }
+
+            container.innerHTML = '';
+            posts.forEach(post => {
+                container.innerHTML += `
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 mb-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-white text-base">${post.title}</h4>
+                        <span class="text-xs text-slate-400">${post.name}</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-3">${post.content}</p>
+                    <div class="text-xs text-gold-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> Publicado: ${post.date}</div>
+                </div>`;
+            });
+        }
+
+        // --- Formulario de Contacto ---
+        function handleContact(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('contact-alert');
+            alertBox.classList.remove('hidden');
+            
+            document.getElementById('contact-form').reset();
+            
+            setTimeout(() => {
+                alertBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Init Load
+        document.addEventListener("DOMContentLoaded", () => {
+            renderTeacherPosts();
+            initHeroCarousel();
+        });
+
+        // --- Hero Carousel Cinematográfico ---
+        function initHeroCarousel() {
+            const slides = [
+                { 
+                    img: 'img/h1.jpg', 
+                    badge: 'Institución Educativa Oficial', 
+                    title1: 'Complejo Educativo', 
+                    title2: 'Profesor Saúl Flores', 
+                    phrase: '"La educación es el arma más poderosa que puedes usar para cambiar el mundo."' 
+                },
+                { 
+                    img: 'img/h2.jpg', 
+                    badge: 'Excelencia Académica', 
+                    title1: 'Forjando el Futuro', 
+                    title2: 'Con Valores y Ciencia', 
+                    phrase: '"El arte de enseñar es el arte de asistir el descubrimiento."' 
+                },
+                { 
+                    img: 'img/h3.jpg', 
+                    badge: 'Desarrollo Integral', 
+                    title1: 'Innovación Educativa', 
+                    title2: 'Líderes del Mañana', 
+                    phrase: '"Donde el conocimiento ilumina el camino hacia el éxito y la integridad."' 
+                },
+                { 
+                    img: 'img/h4.jpg', 
+                    badge: 'Comunidad Escolar', 
+                    title1: 'Trabajo en Equipo', 
+                    title2: 'Pasión por Aprender', 
+                    phrase: '"La inteligencia consiste no solo en el conocimiento, sino en la destreza de aplicar los conocimientos en la práctica."' 
+                }
+            ];
+
+            const section = document.getElementById('inicio');
+            const bgContainer = document.getElementById('carousel-bg');
+            const contentContainer = document.getElementById('carousel-content');
+            const indicatorsContainer = document.getElementById('carousel-indicators');
+            let currentSlide = 0;
+            let isAnimating = false;
+            let slideInterval;
+
+            slides.forEach((slide, index) => {
+                const bg = document.createElement('div');
+                bg.className = `bg-zoom ${index === 0 ? 'active' : ''}`;
+                bg.style.backgroundImage = `url('${slide.img}')`;
+                bg.id = `bg-${index}`;
+                bgContainer.appendChild(bg);
+
+                const slideDiv = document.createElement('div');
+                slideDiv.className = `absolute inset-0 flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4 transition-opacity duration-1000 ${index === 0 ? 'slide-active z-20 pointer-events-auto' : 'opacity-0 z-10 pointer-events-none'}`;
+                slideDiv.id = `slide-${index}`;
+                
+                slideDiv.innerHTML = `
+                    <div class="mask-container mb-6">
+                        <div class="mask-content stagger-1 inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-sm font-semibold backdrop-blur-md shadow-[0_0_20px_rgba(245,158,11,0.15)]">
+                            <i class="fa-solid fa-award"></i><span>${slide.badge}</span>
+                        </div>
+                    </div>
+                    <div class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-8 drop-shadow-2xl flex flex-col items-center w-full">
+                        <div class="mask-container"><div class="mask-content stagger-2">${slide.title1}</div></div>
+                        <div class="mask-container pb-2"><div class="mask-content stagger-3 gold-text-gradient">${slide.title2}</div></div>
+                    </div>
+                    <div class="mask-container mb-12 max-w-3xl">
+                        <p class="mask-content stagger-4 text-lg sm:text-2xl text-slate-200 font-medium leading-relaxed italic drop-shadow-lg text-center">
+                            ${slide.phrase}
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full">
+                        <div class="mask-container">
+                            <a href="#oferta" class="mask-content stagger-5 relative overflow-hidden group w-full sm:w-auto px-8 py-4 rounded-xl gold-gradient text-white font-bold text-base shadow-[0_0_30px_rgba(245,158,11,0.25)] hover:shadow-[0_0_50px_rgba(245,158,11,0.4)] transition-all flex items-center justify-center space-x-3 hover:scale-105">
+                                <div class="absolute inset-0 w-full h-full bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+                                <i class="fa-solid fa-compass"></i>
+                                <span>Explorar Oferta</span>
+                            </a>
+                        </div>
+                        <div class="mask-container">
+                            <a href="#contacto" class="mask-content stagger-6 relative overflow-hidden w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/60 backdrop-blur-md hover:bg-slate-800 text-white font-semibold text-base border border-slate-700 hover:border-gold-500/50 transition-all flex items-center justify-center space-x-3 hover:scale-105 shadow-xl">
+                                <i class="fa-solid fa-phone-volume text-gold-400"></i>
+                                <span>Contáctanos Hoy</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                contentContainer.appendChild(slideDiv);
+
+                const dot = document.createElement('button');
+                dot.className = `w-12 h-1.5 rounded-full transition-all duration-500 overflow-hidden relative bg-slate-800`;
+                dot.onclick = () => goToSlide(index);
+                dot.innerHTML = `<div class="h-full bg-gold-400 w-0 transition-all duration-[6500ms] ease-linear ${index === 0 ? 'w-full' : ''}" id="progress-${index}"></div>`;
+                indicatorsContainer.appendChild(dot);
+            });
+
+            function goToSlide(index) {
+                if (isAnimating || index === currentSlide) return;
+                isAnimating = true;
+
+                const prevSlide = currentSlide;
+                currentSlide = index;
+
+                const currentContent = document.getElementById(`slide-${prevSlide}`);
+                const currentBg = document.getElementById(`bg-${prevSlide}`);
+                const currentProg = document.getElementById(`progress-${prevSlide}`);
+                
+                currentContent.classList.remove('slide-active');
+                currentContent.classList.add('slide-exit');
+                currentContent.classList.remove('pointer-events-auto');
+                currentContent.classList.add('pointer-events-none');
+                
+                currentBg.classList.remove('active');
+                currentBg.classList.add('exit');
+                
+                currentProg.style.transition = 'width 0.3s ease';
+                currentProg.classList.remove('w-full');
+
+                setTimeout(() => {
+                    currentContent.classList.add('opacity-0');
+                    currentContent.classList.remove('slide-exit');
+                    currentBg.classList.remove('exit');
+
+                    const newContent = document.getElementById(`slide-${currentSlide}`);
+                    const newBg = document.getElementById(`bg-${currentSlide}`);
+                    const newProg = document.getElementById(`progress-${currentSlide}`);
+
+                    newBg.classList.add('active');
+                    newContent.classList.remove('opacity-0');
+                    newContent.classList.add('slide-active', 'pointer-events-auto');
+                    
+                    newProg.style.transition = 'none';
+                    newProg.classList.remove('w-full');
+                    
+                    void newProg.offsetWidth;
+                    
+                    newProg.style.transition = 'width 6500ms linear';
+                    newProg.classList.add('w-full');
+
+                    setTimeout(() => {
+                        isAnimating = false;
+                    }, 1200); 
+                }, 800); 
+            }
+
+            function startAutoPlay() {
+                slideInterval = setInterval(() => {
+                    const next = (currentSlide + 1) % slides.length;
+                    goToSlide(next);
+                }, 6500);
+            }
+            
+            section.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 2; 
+                const y = (e.clientY / window.innerHeight - 0.5) * 2; 
+
+                document.querySelectorAll('.parallax-layer').forEach(layer => {
+                    const speed = layer.getAttribute('data-speed') || 1;
+                    const moveX = x * 30 * speed;
+                    const moveY = y * 30 * speed;
+                    layer.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) rotateX(${-y * 10 * speed}deg) rotateY(${x * 10 * speed}deg)`;
+                });
+
+                const activeBg = bgContainer.querySelector('.bg-zoom.active');
+                if (activeBg) {
+                    activeBg.style.transform = `scale(1.05) translate(${x * -8}px, ${y * -8}px)`;
+                }
+            });
+
+            section.addEventListener('mouseleave', () => {
+                document.querySelectorAll('.parallax-layer').forEach(layer => {
+                    layer.style.transform = `translate3d(0px, 0px, 0) rotateX(0deg) rotateY(0deg)`;
+                });
+                const activeBg = bgContainer.querySelector('.bg-zoom.active');
+                if (activeBg) {
+                    activeBg.style.transform = `scale(1) translate(0, 0)`;
+                }
+            });
+
+            startAutoPlay();
+        }
+    </script>
+</body>
+</html>
